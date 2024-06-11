@@ -8,7 +8,6 @@ import { useProgress } from "@react-three/drei";
 
 import { Menu } from "./components/Menu";
 
-
 const CubeLoader = () => {
   return (
     <mesh>
@@ -36,7 +35,7 @@ function App() {
     <>
       <LoadingScreen />
       <Canvas camera={{ position: [.125, 4.25, 4.25], fov: 40 }}>
-        <ScrollControls pages={10}>
+        <ScrollControls pages={10} >
           <OrbitControls />
           <Experience />
         </ScrollControls>

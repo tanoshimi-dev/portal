@@ -1,8 +1,14 @@
-export const License = () => {
-    return (
-      <div className="license">
-        <img className="license_picture" src="/assets/images/DB_trim.png" alt="logo" />
+import { useLoader } from '@react-three/fiber';
+import { TextureLoader } from 'three';
+import { Plane } from '@react-three/drei';
 
-      </div>
-    );
-  };
+export const License = (props) => {
+  const texture = useLoader(TextureLoader, '/assets/images/DB_trim.png');
+  
+  return (
+  <Plane args={[1, 1]}>
+    <meshBasicMaterial attach="material" map={texture} />
+  </Plane>
+  );
+
+};

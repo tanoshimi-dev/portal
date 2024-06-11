@@ -17,6 +17,7 @@ body {
   --text-light-color: #555;
 }
 
+
 #root {
   width: 100vw;
   height: 100vh;
@@ -76,4 +77,45 @@ body {
 .menu__button:hover {
   color: var(--primary-color);
   cursor: pointer;
+}
+
+
+
+.label {
+  padding: 0.5rem 1.5rem;
+  background-color: rgb(255 255 255 / 80%);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  text-align: center;
+  transition: transform 0.2s, opacity 0.42s;
+  width: 360px;
+}
+
+.label--hidden {
+  opacity: 0;
+  transform: scale(0.42);
+}
+
+.label__price {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.label__name {
+  font-size: 1rem;
+  color: #999;
+}
+
+
+/* ... */
+::-webkit-scrollbar{
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-track{
+  background-color: #ffc8dd;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #ff006e;
 }
