@@ -5,7 +5,8 @@ import { useEffect, useRef, useState, useMemo } from "react";
 import { GuitarMan } from "./GuitarMan";
 import { WebConfiguration } from "./WebConfiguration";
 import { ApiConfiguration } from "./ApiConfiguration";
-import { NFTFrameArt } from "./NFTFrameArt";
+import { PictureFrame } from "./PictureFrame";
+import { PictureLicense } from "./PictureLicense";
 import { UserLogin } from "./UserLogin";
 
 
@@ -20,74 +21,13 @@ import { config } from "../config";
 
 const SECTIONS_DISTANCE = 5;
 
-const vertexShader = `
-  void main() {
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-  }
-`;
-
-const fragmentShader = `
-  uniform vec3 uColor;
-  uniform float uTime;
-  void main() {
-    // Simple example: oscillate color intensity over time
-    float intensity = abs(sin(uTime));
-    gl_FragColor = vec4(uColor * intensity, 1);
-  }
-`;
-
-// Extend will make the shader available as a JSX element
-extend({ ShaderMaterial: THREE.ShaderMaterial });
-
-const BackgroundShader = ({ color = new THREE.Color(0x000000) }) => {
-  const { viewport, aspect } = useThree();
-  const shaderMaterial = useMemo(() => new THREE.ShaderMaterial({
-    vertexShader,
-    fragmentShader,
-    uniforms: {
-      uColor: { value: color},
-    },
-  }), [color]);
-
-  // Adjust the plane size based on the viewport
-  const planeSize = useMemo(() => {
-    const height = viewport.height;
-    const width = viewport.width;
-    return [width, height, 1];
-  }, [viewport.height, viewport.width]);
-
-  return (
-
-    <mesh position={[0, 0, -1]} material={shaderMaterial} scale={[10.0,10.0,10.0]}>
-      <planeGeometry attach="geometry" args={planeSize} />
-    </mesh>
-
-    // <mesh position={[0, 0, -1]} material={shaderMaterial} scale={[10.0,10.0,10.0]}>
-    //   <boxGeometry attach="geometry" args={planeSize} />
-    // </mesh>
-
-  );
-};
-
-
-function FullScreenMesh() {
-  const { viewport } = useThree();
-
-  // Calculate size based on the viewport dimensions
-  const size = useMemo(() => {
-    const aspectRatio = viewport.aspect;
-    const height = 2 * Math.tan((Math.PI / 180) * 75 / 2) * viewport.factor; // 75 is an assumed FOV. Adjust if your camera's FOV is different.
-    const width = height * aspectRatio;
-    return [width, height, 1]; // Width, height, depth (depth is irrelevant for a plane but required for box geometry)
-  }, [viewport]);
-
-  return (
-    <mesh position={[0, 0, -5]}> {/* Position the mesh in front of the camera */}
-      <planeGeometry attach="geometry" args={size} />
-      <meshBasicMaterial attach="material" color="royalblue" />
-    </mesh>
-  );
-}
+const licensePictures = [
+  "/assets/images/DB_trim.png",
+  "/assets/images/NW_trim.png",
+  "/assets/images/PM_trim.png",
+  "/assets/images/BOKI_trim.png",
+  "/assets/images/AWS_clf.png",
+]
 
 export const Experience = () => {
   
@@ -96,8 +36,9 @@ export const Experience = () => {
   const sceneContainer = useRef();
   const scrollData = useScroll();
 
-  const [sectionIndex, setSectionIndex] = useState(0);
-
+  // const [sectionIndex, setSectionIndex] = useState(0);
+  const [licenseIndex, setLicenseIndex] = useState(0);
+  
   // useFrame(() => {
   //   sceneContainer.current.position.z =
   //     -scrollData.offset * SECTIONS_DISTANCE * (scrollData.pages - 1);
@@ -279,8 +220,31 @@ export const Experience = () => {
           <group position-y={-2 * SECTIONS_DISTANCE}>
 
 
-            <NFTFrameArt scale={[0.35,0.35,0.35]} position={[-1.5, -4, 1.5]}/>
+            <PictureFrame scale={0.35} 
+              // position={[-0.5, -3, 1.5]} 
+              // rotation={[0.01, Math.PI*0.08, 1.5]}
+              position-x={-1.9}
+              position-y={-4}
+              position-z={0.5}
+              rotation-y={Math.PI + 0.2}
+              rotation-z={0.15}
+            />
+            
+            <PictureLicense 
+              scale={1.3} 
+              position-x={-2.06}
+              position-y={-2.85}
+              position-z={1}
+              rotation-x={-0.28}
+              rotation-y={-1.2}
+              rotation-z={0.09}
 
+              // imageUrl="https://picsum.photos/id/237/200/300"
+              imageUrl={licensePictures[licenseIndex]}
+              
+            />
+  
+  
             {/* <Html occlude position={[140, -4000, 3.5]}> */}
             <Html occlude position={[12.0, -100, 20]}>
             
@@ -288,11 +252,11 @@ export const Experience = () => {
                 <div className="label__price">資格</div>
                 <div className="label__name">
                   <ul>
-                    <li>データベーススペシャリスト</li>
-                    <li>ネットワークスペシャリスト</li>
-                    <li>プロジェクトマネージャ</li>
-                    <li>日商簿記 2級</li>
-                    <li>AWS CLF</li>
+                    <li onClick={()=>setLicenseIndex(0)}>データベーススペシャリスト</li>
+                    <li onClick={()=>setLicenseIndex(1)}>ネットワークスペシャリスト</li>
+                    <li onClick={()=>setLicenseIndex(2)}>プロジェクトマネージャ</li>
+                    <li onClick={()=>setLicenseIndex(3)}>日商簿記 2級</li>
+                    <li onClick={()=>setLicenseIndex(4)}>AWS CLF</li>
                   </ul>
                 </div>
               </div>
@@ -305,9 +269,7 @@ export const Experience = () => {
 
             {/* <SectionTitle position-x={0.5}>CONTACT</SectionTitle> */}
 
-             
-
-            <License scale={[0.35,0.35,0.35]} position={[1.0, 1.0, 1.5]}/>
+            {/* <License scale={[0.35,0.35,0.35]} position={[1.0, 1.0, 1.5]}/> */}
 
             {/* <Html occlude position={[0, 0, 0]}>
               <div className="label" >
