@@ -1,10 +1,6 @@
 export const config = {
   title: "3D Web Developer",
-  sections: ["home", "skills", "projects", "contact"],
-  home: {
-    title: "WAWA",
-    subtitle: "SENSEI",
-  },
+  sections: ["top", "skills", "achivements", "license", "contact"],
   skills: [
     {
       name: "React",
@@ -42,7 +38,11 @@ export const config = {
       level: 30,
     },
   ],
-  projects: [
+  achivements: {
+    title: "WAWA",
+    subtitle: "SENSEI",
+  },
+  license: [
     {
       name: "Dissolve tutorial",
       description: "Create a dissolve effect with React Three Fiber",
