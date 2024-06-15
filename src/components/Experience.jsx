@@ -21,13 +21,6 @@ import { config } from "../config";
 
 const SECTIONS_DISTANCE = 5;
 
-const licensePictures = [
-  "/assets/images/DB_trim.png",
-  "/assets/images/NW_trim.png",
-  "/assets/images/PM_trim.png",
-  "/assets/images/BOKI_trim.png",
-  "/assets/images/AWS_clf.png",
-]
 
 export const Experience = () => {
   
@@ -92,6 +85,11 @@ export const Experience = () => {
   }
   
   
+  const handleLicenseClick = (index, event) => {
+    event.preventDefault(); // Prevent default click behavior
+    setLicenseIndex(index); // Update state as needed
+  };
+
   return (
     <>
 
@@ -240,8 +238,8 @@ export const Experience = () => {
               rotation-z={0.09}
 
               // imageUrl="https://picsum.photos/id/237/200/300"
-              imageUrl={licensePictures[licenseIndex]}
-              
+              pictureIndex={licenseIndex}
+
             />
   
   
@@ -252,11 +250,11 @@ export const Experience = () => {
                 <div className="label__price">資格</div>
                 <div className="label__name">
                   <ul>
-                    <li onClick={()=>setLicenseIndex(0)}>データベーススペシャリスト</li>
-                    <li onClick={()=>setLicenseIndex(1)}>ネットワークスペシャリスト</li>
-                    <li onClick={()=>setLicenseIndex(2)}>プロジェクトマネージャ</li>
-                    <li onClick={()=>setLicenseIndex(3)}>日商簿記 2級</li>
-                    <li onClick={()=>setLicenseIndex(4)}>AWS CLF</li>
+                    <li onClick={() => setLicenseIndex(0)}>データベーススペシャリスト</li>
+                    <li onClick={() => setLicenseIndex(1)}>ネットワークスペシャリスト</li>
+                    <li onClick={() => setLicenseIndex(2)}>プロジェクトマネージャ</li>
+                    <li onClick={() => setLicenseIndex(3)}>日商簿記 2級</li>
+                    <li onClick={() => setLicenseIndex(4)}>AWS CLF</li>
                   </ul>
                 </div>
               </div>
