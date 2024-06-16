@@ -138,11 +138,32 @@ body {
  
 }
 
+@media (max-width: 990px) {
+  .menu {
+    left: 0;
+    right: 2rem;
+  }  
+
+  .menu__buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: end;
+  }
+  
+
+  .menu__logo {
+    height: 48px;
+    width: 80px;
+    object-fit: contain;
+  }
+
+}
+
 
 /* ... */
 ::-webkit-scrollbar{
-  width: 0px;
-  height: 0px;
+  width: 10px;
+  height: 10px;
 }
 ::-webkit-scrollbar-track{
   background-color: #ffc8dd;

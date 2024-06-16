@@ -39,6 +39,7 @@ function App() {
       {/* <LoadingScreen /> */}
       <Canvas camera={{ position: [.125, 4.25, 4.25], fov: 40 }} style={{backgroundColor: '#f0fff0'}} >
         <ScrollControls pages={5} >
+{/*           
           <OrbitControls 
             maxPolarAngle={Math.PI / 2} // Prevent the camera from going below the ground
             minPolarAngle={Math.PI / 3} // Prevent the camera from going too high
@@ -47,6 +48,10 @@ function App() {
             maxDistance={10} // Limit how far out the camera can zoom
             minDistance={2} // Limit how close the camera can zoom
           />
+          */}
+          
+          <OrbitControls />
+
           <Experience />
         </ScrollControls>
         <ambientLight intensity={1} />

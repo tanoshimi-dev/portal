@@ -19,15 +19,22 @@ import * as THREE from 'three';
 import { License } from "./License";
 import { config } from "../config";
 
-const SECTIONS_DISTANCE = 5;
+import { useMobile } from "../hooks/useMobile";
 
+
+
+const SECTIONS_DISTANCE = 5;
 
 export const Experience = () => {
   
- 
   const [section, setSection] = useState(config.sections[0]);
   const sceneContainer = useRef();
   const scrollData = useScroll();
+  
+  const { isMobile } = useMobile();
+
+  // let SECTIONS_DISTANCE = isMobile ? 12 : 5;
+  // let SECTIONS_DISTANCE = 5;
 
   // const [sectionIndex, setSectionIndex] = useState(0);
   const [licenseIndex, setLicenseIndex] = useState(0);
@@ -105,8 +112,8 @@ export const Experience = () => {
       <GuitarMan scale={[0.35,0.35,0.35]}/>
       <Text 
         font="/assets/RocknRoll_One/RocknRollOne-Regular.ttf"
-        scale={[-0.5, 0.5, 0.5]} 
-        position={[0.15, 0.15, 0.5]}
+        scale={isMobile? [-0.25, 0.25, 0.25] : [-0.5, 0.5, 0.5]} 
+        position={[0.015, 0.15, 0.5]}
         rotation={[0.0, Math.PI, 270]}
         color="silver" // Default is white
         anchorX="center" // Anchor point x (default is "center")
@@ -119,8 +126,7 @@ export const Experience = () => {
 
         <group>
           
-           {/* TOP */}
-
+          {/* TOP */}
           <group >
 
             <Sparkles
@@ -139,20 +145,17 @@ export const Experience = () => {
 
           <group >
 
-            <Sparkles
-              size={ 4 }
-              scale={ [ 14, 2, 4 ] }
-              position-y={ 0.5 }
-              speed={ 0.2 }
-              color={ 'gold' }
-              count={ 20 }
-            />
+            {!isMobile &&
+              <WebConfiguration 
+                scale={[0.35]} 
+                position={[1, -6, 2.5]}
+              />
+            }
 
-            <WebConfiguration scale={[0.35,0.35,0.35]} position={[-1.5, -5.0, 1.5]}/> 
-            
+            <Html occlude 
+              position={isMobile? [-0.1, -2, 4] : [1.5, -6.5, 2.75]}
+            >
 
-
-            <Html occlude position={[1.5, -8.5, 1.5]}>
               <div className="skills" >
                 <div className="label__name">実務経験があるもののみ</div>
                 <div className="label__price">Frontend</div>
@@ -184,18 +187,11 @@ export const Experience = () => {
           {/* PROJECTS */}
           <group position-y={SECTIONS_DISTANCE}>
 
-          <Sparkles
-              size={ 4 }
-              scale={ [ 14, 2, 4 ] }
-              position-y={ 0.5 }
-              speed={ 0.2 }
-              color={ 'gold' }
-              count={ 20 }
-            />
+            {!isMobile &&
+              <ApiConfiguration scale={[0.35]} position={[1, 1, 1]}/>
+            }
 
-            <ApiConfiguration scale={[0.35,0.35,0.35]} position={[-1.5, -13, 1.5]}/>
-
-            <Html occlude position={[8.0, -90.0, 1.5]}>
+            <Html occlude position={isMobile? [1.5, 10.5, -1] : [8.0, -90.0, 17.5]}>
               <div className="skills" >
                 <div className="label__name">一部</div>
                 <div className="label__price">ECサイト</div>
@@ -211,40 +207,35 @@ export const Experience = () => {
               
             </Html>
 
-
           </group>
 
           {/* LICENSE */}
           <group position-y={-2 * SECTIONS_DISTANCE}>
 
-
-            <PictureFrame scale={0.35} 
+            <PictureFrame scale={isMobile ? 0.3 : 0.35} 
               // position={[-0.5, -3, 1.5]} 
               // rotation={[0.01, Math.PI*0.08, 1.5]}
-              position-x={-1.9}
-              position-y={-4}
-              position-z={0.5}
-              rotation-y={Math.PI + 0.2}
-              rotation-z={0.15}
+              position-x={isMobile ? 0.37 : -1.9}
+              position-y={isMobile ? -4.8 : -4}
+              position-z={isMobile ? 0.625 : 0.5}
+              rotation-x={isMobile ? 0.02 : 0}
+              rotation-y={isMobile ? (Math.PI - 0.21) : (Math.PI + 0.2)}
+              rotation-z={isMobile ? 0.03 : 0.15}
             />
             
             <PictureLicense 
-              scale={1.3} 
-              position-x={-2.06}
-              position-y={-2.85}
-              position-z={1}
-              rotation-x={-0.28}
-              rotation-y={-1.2}
-              rotation-z={0.09}
-
+              scale={isMobile ? 1.1 : 1.3} 
+              position-x={isMobile ? -0.03 : -2.06}
+              position-y={isMobile ? -3.85 : -2.85}
+              position-z={isMobile ? 0.9 : 1}
+              rotation-x={isMobile ? -0.31 : -0.28}
+              rotation-y={isMobile ? -1.6 : -1.2}
+              rotation-z={isMobile ? 0.02 :0.09}
               // imageUrl="https://picsum.photos/id/237/200/300"
               pictureIndex={licenseIndex}
-
             />
   
-  
-            {/* <Html occlude position={[140, -4000, 3.5]}> */}
-            <Html occlude position={[12.0, -100, 20]}>
+            <Html occlude position={isMobile ? [-2, -64, 32] : [12.0, -100, 20]}>
             
               <div className="skills" >
                 <div className="label__price">資格</div>
@@ -262,23 +253,30 @@ export const Experience = () => {
             </Html>
 
           </group>
+
           {/* CONTACT */}
           <group position-y={-3 * SECTIONS_DISTANCE}>
 
-            {/* <SectionTitle position-x={0.5}>CONTACT</SectionTitle> */}
+            {!isMobile &&
+              <UserLogin scale={0.35} 
+                position-x={-1.9}
+                position-y={-2.3}
+                position-z={0.5}
+                rotation-y={Math.PI - 2.2}
+                rotation-z={0.15}
+              />
+            }
 
-            {/* <License scale={[0.35,0.35,0.35]} position={[1.0, 1.0, 1.5]}/> */}
-
-            {/* <Html occlude position={[0, 0, 0]}>
-              <div className="label" >
-                <div className="label__price">３</div>
-                <div className="label__name">🐈</div>
+            <Html occlude position={isMobile ? [-2, -55, 36] : [12.0, -105, 30.5]}>
+              
+              <div className="skills" >
+                <div className="label__price">連絡お待ちしてます！</div>
+                <div className="label__name">
+                </div>
               </div>
-            </Html> */}
-            <UserLogin scale={[0.35,0.35,0.35]} position={[0.35, -4.5, 1.5]}/>      
+              
+            </Html>
 
-
-           
 
           </group>
 
