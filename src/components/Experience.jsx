@@ -29,14 +29,14 @@ export const Experience = () => {
   
   const [section, setSection] = useState(config.sections[0]);
   const sceneContainer = useRef();
-  const scrollData = useScroll();
-  
+
+  const scrollData = useScroll();  
   const { isMobile } = useMobile();
 
   // let SECTIONS_DISTANCE = isMobile ? 12 : 5;
   // let SECTIONS_DISTANCE = 5;
 
-  // const [sectionIndex, setSectionIndex] = useState(0);
+  const [defaultRot, setDefaultRot] = useState(0);
   const [licenseIndex, setLicenseIndex] = useState(0);
   
   // useFrame(() => {
@@ -65,6 +65,7 @@ export const Experience = () => {
             (scrollData.el.scrollHeight - scrollData.el.clientHeight)
       }`);
       //setSectionIndex(sectionIndex);
+      setDefaultRot(sectionIndex);
 
       if (sectionIndex !== -1) {
         scrollData.el.scrollTo(
@@ -109,12 +110,22 @@ export const Experience = () => {
       <directionalLight position={[0, -5, 0]} color="orange" intensity={2} />
       <Light />
 
-      <GuitarMan scale={[0.35,0.35,0.35]}/>
+      <GuitarMan 
+        scale={[0.35,0.35,0.35]}
+        // rotation-x={0 - (defaultRot * 0.1)}
+        rotation-x={0}
+        rotation-y={0}
+        rotation-z={0}      
+      />
+
       <Text 
         font="/assets/RocknRoll_One/RocknRollOne-Regular.ttf"
         scale={isMobile? [-0.25, 0.25, 0.25] : [-0.5, 0.5, 0.5]} 
         position={[0.015, 0.15, 0.5]}
-        rotation={[0.0, Math.PI, 270]}
+        // rotation={[0.0, Math.PI, 270]}
+        rotation-x={0}
+        rotation-y={Math.PI}
+        rotation-z={270}  
         color="silver" // Default is white
         anchorX="center" // Anchor point x (default is "center")
         anchorY="middle" //           
@@ -137,8 +148,8 @@ export const Experience = () => {
               color={ 'gold' }
               count={ 20 }
             />
-
-
+              
+            
           </group>
 
           {/* SKILLS */}
@@ -147,8 +158,13 @@ export const Experience = () => {
 
             {!isMobile &&
               <WebConfiguration 
-                scale={[0.35]} 
-                position={[1, -6, 2.5]}
+                scale={0.35} 
+                position-x={-1.9}
+                position-y={-6.1}
+                position-z={0.5}
+                rotation-x={-0.6}
+                rotation-y={Math.PI - 2.2}
+                rotation-z={0.15}
               />
             }
 
@@ -184,14 +200,25 @@ export const Experience = () => {
 
           </group>
           
-          {/* PROJECTS */}
+          {/* ACHEVEMENT */}
           <group position-y={SECTIONS_DISTANCE}>
 
             {!isMobile &&
-              <ApiConfiguration scale={[0.35]} position={[1, 1, 1]}/>
+              <ApiConfiguration 
+                scale={0.35} 
+                position-x={-1.9}
+                position-y={-15.1}
+                position-z={0.5}
+                rotation-x={-0.6}
+                rotation-y={Math.PI - 2.2}
+                rotation-z={0.15}
+              />
             }
 
-            <Html occlude position={isMobile? [1.5, 10.5, -1] : [8.0, -90.0, 17.5]}>
+            <Html occlude 
+              position={isMobile? [1.5, 10.5, -1] : [8.0, -70.0, 17.5]}
+            >
+              
               <div className="skills" >
                 <div className="label__name">一部</div>
                 <div className="label__price">ECサイト</div>
@@ -235,7 +262,9 @@ export const Experience = () => {
               pictureIndex={licenseIndex}
             />
   
-            <Html occlude position={isMobile ? [-2, -64, 32] : [12.0, -100, 20]}>
+            <Html 
+              occlude position={isMobile ? [-2, -64, 32] : [11.0, -81, 40]}
+            >
             
               <div className="skills" >
                 <div className="label__price">資格</div>
@@ -267,7 +296,9 @@ export const Experience = () => {
               />
             }
 
-            <Html occlude position={isMobile ? [-2, -55, 36] : [12.0, -105, 30.5]}>
+            <Html 
+              occlude position={isMobile ? [-2, -55, 36] : [11.0, -92, 55]}
+            >
               
               <div className="skills" >
                 <div className="label__price">連絡お待ちしてます！</div>
