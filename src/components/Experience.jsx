@@ -140,12 +140,12 @@ export const Experience = () => {
           {/* TOP */}
           <group >
             <Sparkles
-              size={ 4 }
-              scale={ [ 14, 2, 4 ] }
-              position-y={ 0.5 }
-              speed={ 0.2 }
+              size={ isMobile ? 5 : 4 }
+              scale={ isMobile ?  [ 6, 4, 4 ] : [ 14, 2, 4 ] }
+              position-y={ isMobile ? -0.7 : 0.5 }
+              speed={ isMobile ? 0.5 : 0.2 }
               color={ 'gold' }
-              count={ 20 }
+              count={ isMobile ? 20 : 20 }
             />
           </group>
 
@@ -165,7 +165,7 @@ export const Experience = () => {
             }
 
             <Html occlude 
-              position={isMobile? [1.5, 10.5, -1] : [1, -10, 0.5]}
+              position={isMobile? [-0.95, -9, 2] : [1, -10, 0.5]}
             >
 
               <div className="career career--normalsize" >
@@ -212,7 +212,7 @@ export const Experience = () => {
             }
 
             <Html occlude 
-              position={isMobile? [1.5, 10.5, -1] : [6, -90, 0.6]}
+              position={isMobile? [-3.35, -55, 4] : [6, -90, 0.6]}
             >
               
               <div className="career career--bigsize" >
@@ -284,7 +284,7 @@ export const Experience = () => {
             />
   
             <Html 
-              occlude position={isMobile ? [1.5, 10.5, -1] : [5, -100, 20.25]}
+              occlude position={isMobile ? [-3.5, -70, 15] : [5, -100, 20.25]}
             >
             
               <div className="career career--normalsize" >
@@ -331,7 +331,7 @@ export const Experience = () => {
             }
 
             <Html 
-              occlude position={isMobile ? [-2, -55, 36] : [7, -155, 43]}
+              occlude position={isMobile ? [-3, -90, 28] : [7, -155, 43]}
             >
               
               <div className="career career--smallsize" >
@@ -340,9 +340,9 @@ export const Experience = () => {
                 <div className="career__link">
                   <a href="mailto:mtkg@tanoshimi.dev?subject=システム依頼" target="_blank" rel="noopener" >mtkg@tanoshimi.dev</a>
                 </div>
-                <div className="career__label">ココナラ</div>
+                <div className="career__label">ココナラ経由</div>
                 <div className="career__link">
-                  <a href="https://coconala.com/users/2393040" target="_blank" rel="noopener" >ココナラ経由でのご依頼</a>
+                  <a href="https://coconala.com/users/2393040" target="_blank" rel="noopener" >ココナラからのご依頼</a>
                 </div>                
               </div>
               
