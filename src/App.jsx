@@ -20,26 +20,31 @@ const CubeLoader = () => {
 };
 
 const LoadingScreen = () => {
-  const { progress } = useProgress();
+  const { progress, active } = useProgress();
 
   return (
-    <div className="loading-screen">
+    <div className={`loading-screen ${active ? "" : "loading-screen--hidden"}`}>
       <div className="loading-screen__container">
-        <h1 className="loading-screen__title">3D Web Agency</h1>
-        <p>Loading... ({parseInt(progress)}%)</p>
+        <h1 className="loading-screen__title">お待ちください</h1>
+        <div className="progress__container">
+          <div
+            className="progress__bar"
+            style={{ width: `${progress}%` }}
+          ></div>
+        </div>
       </div>
     </div>
   );
 };
 
-
 function App() {
   return (
     <>
-      {/* <LoadingScreen /> */}
+      <LoadingScreen />
       <Canvas camera={{ position: [.125, 4.25, 4.25], fov: 40 }} style={{backgroundColor: '#f0fff0'}} >
         <ScrollControls pages={5} >
-{/*           
+          
+          {/* 制限したいが、再度位置を調整する必要がある */}
           <OrbitControls 
             maxPolarAngle={Math.PI / 2} // Prevent the camera from going below the ground
             minPolarAngle={Math.PI / 3} // Prevent the camera from going too high
@@ -47,10 +52,11 @@ function App() {
             minAzimuthAngle={-Math.PI / 4} // Limit left/right rotation
             maxDistance={10} // Limit how far out the camera can zoom
             minDistance={2} // Limit how close the camera can zoom
-          />
-          */}
-          
+          /> 
+
+          {/* これは、カメラの位置を変更するために使用されます 
           <OrbitControls />
+          */}
 
           <Experience />
         </ScrollControls>

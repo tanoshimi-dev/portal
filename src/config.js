@@ -1,6 +1,6 @@
 export const config = {
   title: "3D Web Developer",
-  sections: ["top", "skills", "achivements", "license", "contact"],
+  sections: ["top", "skills", "projects", "licenses", "contact"],
   skills: [
     {
       name: "React",

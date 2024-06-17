@@ -139,7 +139,6 @@ export const Experience = () => {
           
           {/* TOP */}
           <group >
-
             <Sparkles
               size={ 4 }
               scale={ [ 14, 2, 4 ] }
@@ -148,51 +147,48 @@ export const Experience = () => {
               color={ 'gold' }
               count={ 20 }
             />
-              
-            
           </group>
 
           {/* SKILLS */}
-
           <group >
 
             {!isMobile &&
               <WebConfiguration 
                 scale={0.35} 
                 position-x={-1.9}
-                position-y={-6.1}
-                position-z={0.5}
-                rotation-x={-0.6}
+                position-y={-5.5}
+                position-z={0.45}
+                rotation-x={-0.4}
                 rotation-y={Math.PI - 2.2}
                 rotation-z={0.15}
               />
             }
 
             <Html occlude 
-              position={isMobile? [-0.1, -2, 4] : [1.5, -6.5, 2.75]}
+              position={isMobile? [1.5, 10.5, -1] : [1, -10, 0.5]}
             >
 
-              <div className="skills" >
-                <div className="label__name">実務経験があるもののみ</div>
-                <div className="label__price">Frontend</div>
-                <div className="label__name">
+              <div className="career career--normalsize" >
+                <div className="career__subtitle">実務経験</div>
+                <div className="career__label">Frontend</div>
+                <div className="career__list">
                   <ul>
                     <li>React</li>
                     <li>Vue.js</li>
-                    <li>TypeScript / JavaScript</li>
+                    <li>TypeScript, JavaScript</li>
                   </ul>
                 </div>
-                <div className="label__price">Backend</div>
-                <div className="label__name">
+                <div className="career__label">Backend</div>
+                <div className="career__list">
                   <ul>
                     <li>PHP</li>
                     <li>Java</li>
                     <li>Dart</li>
-                    <li>Rust</li>
                     <li>Node.js</li>
-                    <li>Ruby</li>
+                    <li>Rust</li>
                   </ul>
                 </div>
+                <div className="career__label">Infrastructure, Tools, Web, etc</div>
                 
               </div>
               
@@ -200,14 +196,14 @@ export const Experience = () => {
 
           </group>
           
-          {/* ACHEVEMENT */}
+          {/* PROJECTS */}
           <group position-y={SECTIONS_DISTANCE}>
 
             {!isMobile &&
               <ApiConfiguration 
                 scale={0.35} 
                 position-x={-1.9}
-                position-y={-15.1}
+                position-y={-14.75}
                 position-z={0.5}
                 rotation-x={-0.6}
                 rotation-y={Math.PI - 2.2}
@@ -216,20 +212,45 @@ export const Experience = () => {
             }
 
             <Html occlude 
-              position={isMobile? [1.5, 10.5, -1] : [8.0, -70.0, 17.5]}
+              position={isMobile? [1.5, 10.5, -1] : [6, -90, 0.6]}
             >
               
-              <div className="skills" >
-                <div className="label__name">一部</div>
-                <div className="label__price">ECサイト</div>
-                <div className="label__name">
-                  <a href="https://tokyoworkswd.com" target="_blank">東京ワークス</a>
+              <div className="career career--bigsize" >
+                
+                <div className="career__subtitle">受託開発の一例です</div>
+                
+                <div className="career__label">ECサイト</div>
+                <div className="career__link">
+                  <a href="https://tokyoworkswd.com" target="_blank" rel="noopener" >卸売会社</a>
                 </div>
-                <div className="label__price">スマホアプリ</div>
-                <div className="label__name">
-                  <a href="https://japanavatarguide.com/" target="_blank">Japan Avator Guide</a>
+                <div className="career__label">Webアプリ（劇場内で使用したシステム）</div>
+                <div className="career__link">
+                  <a href="https://prtimes.jp/main/html/rd/p/000001714.000013972.html" target="_blank" rel="noopener" >イベント会社</a>
+                </div>
+                <div className="career__label">スマホアプリ</div>
+                <div className="career__link">
+                  <a href="https://japanavatarguide.com/" target="_blank" rel="noopener" >インバウンド観光旅行会社</a>
+                </div>
+                <div className="career__label">LP</div>
+                <div className="career__link">
+                  <a href="https://bigangel.jp/" target="_blank" rel="noopener" >アイドル</a>
+                </div>
+                <div className="career__label">WordPress</div>
+                <div className="career__link">
+                  <a href="https://studio-nagi.com/" target="_blank" rel="noopener" >レンタルスペース業者</a>
                 </div>
                 
+                <div className="career__subtitle">個人プロジェクトの一例です</div>
+
+                <div className="career__label">技術テキスト（作成中）</div>
+                <div className="career__link">
+                  <a href="https://textbook.hannari.dev" target="_blank" rel="noopener" >textbook</a>
+                </div>
+                <div className="career__label">システム・アプリ概算見積り（作成中）</div>
+                <div className="career__link">
+                  <a href="https://oikura.tanoshimi.dev" target="_blank" rel="noopener" >おいくら</a>
+                </div>
+
               </div>
               
             </Html>
@@ -263,20 +284,33 @@ export const Experience = () => {
             />
   
             <Html 
-              occlude position={isMobile ? [-2, -64, 32] : [11.0, -81, 40]}
+              occlude position={isMobile ? [1.5, 10.5, -1] : [5, -100, 20.25]}
             >
             
-              <div className="skills" >
-                <div className="label__price">資格</div>
-                <div className="label__name">
-                  <ul>
-                    <li onClick={() => setLicenseIndex(0)}>データベーススペシャリスト</li>
-                    <li onClick={() => setLicenseIndex(1)}>ネットワークスペシャリスト</li>
-                    <li onClick={() => setLicenseIndex(2)}>プロジェクトマネージャ</li>
-                    <li onClick={() => setLicenseIndex(3)}>日商簿記 2級</li>
-                    <li onClick={() => setLicenseIndex(4)}>AWS CLF</li>
-                  </ul>
+              <div className="career career--normalsize" >
+                <div className="career__subtitle">保有資格</div>
+
+                <div className="career__label">IPA 情報処理技術者試験</div>
+                <div className="career__link">
+                  <a href="#" onClick={() => setLicenseIndex(0)}>データベーススペシャリスト</a>
                 </div>
+                <div className="career__link">
+                  <a href="#" onClick={() => setLicenseIndex(1)}>ネットワークスペシャリスト</a>
+                </div>
+                <div className="career__link">
+                  <a href="#" onClick={() => setLicenseIndex(2)}>プロジェクトマネージャ</a>
+                </div>
+
+                <div className="career__label">商工会議所の検定試験</div>
+                <div className="career__link">
+                  <a href="#" onClick={() => setLicenseIndex(3)}>日商簿記検定 2級</a>
+                </div>
+ 
+                <div className="career__label">その他</div>
+                <div className="career__link">
+                  <a href="#" onClick={() => setLicenseIndex(4)}>AWS CLF</a>
+                </div>
+
               </div>
               
             </Html>
@@ -297,13 +331,19 @@ export const Experience = () => {
             }
 
             <Html 
-              occlude position={isMobile ? [-2, -55, 36] : [11.0, -92, 55]}
+              occlude position={isMobile ? [-2, -55, 36] : [7, -155, 43]}
             >
               
-              <div className="skills" >
-                <div className="label__price">連絡お待ちしてます！</div>
-                <div className="label__name">
+              <div className="career career--smallsize" >
+                <div className="career__subtitle">連絡お待ちしてます！</div>
+                <div className="career__label">メール</div>
+                <div className="career__link">
+                  <a href="mailto:mtkg@tanoshimi.dev?subject=システム依頼" target="_blank" rel="noopener" >mtkg@tanoshimi.dev</a>
                 </div>
+                <div className="career__label">ココナラ</div>
+                <div className="career__link">
+                  <a href="https://coconala.com/users/2393040" target="_blank" rel="noopener" >ココナラ経由でのご依頼</a>
+                </div>                
               </div>
               
             </Html>
@@ -318,8 +358,8 @@ export const Experience = () => {
 
       {/* <Html position={[0, 0, 0]} style={{ position: 'absolute', top: '10px', left: '10px' }}>
             <div className="label">
-              <div className="label__price">設計</div>
-              <div className="label__name">開発</div>
+              <div className="career__label">設計</div>
+              <div className="career__link">開発</div>
             </div>
           </Html> */}
 

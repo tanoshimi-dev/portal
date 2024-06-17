@@ -10,11 +10,11 @@ export const Menu = () => {
           <a className="menu__button" href="#skills">
             Skills
           </a>
-          <a className="menu__button" href="#achivements">
-            Achivements
+          <a className="menu__button" href="#projects">
+            Projects
           </a>
-          <a className="menu__button" href="#license">
-            License
+          <a className="menu__button" href="#licenses">
+            Licenses
           </a>
           <a className="menu__button" href="#contact">
             Contact
