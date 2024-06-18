@@ -56,14 +56,15 @@ export const Experience = () => {
       );
       
 
-      console.log(`sectionIndex = ${sectionIndex}`);
-      console.log(`section.length = ${config.sections.length}`);
-      console.log(`scrollData.el.scrollHeight = ${scrollData.el.scrollHeight}`);
-      console.log(`scrollData.el.clientHeight = ${scrollData.el.clientHeight}`);
-      console.log(`result = ${
-        (sectionIndex / (config.sections.length - 1)) *
-            (scrollData.el.scrollHeight - scrollData.el.clientHeight)
-      }`);
+      // console.log(`sectionIndex = ${sectionIndex}`);
+      // console.log(`section.length = ${config.sections.length}`);
+      // console.log(`scrollData.el.scrollHeight = ${scrollData.el.scrollHeight}`);
+      // console.log(`scrollData.el.clientHeight = ${scrollData.el.clientHeight}`);      
+      // console.log(`result = ${
+      //   (sectionIndex / (config.sections.length - 1)) *
+      //       (scrollData.el.scrollHeight - scrollData.el.clientHeight)
+      // }`);
+
       //setSectionIndex(sectionIndex);
       setDefaultRot(sectionIndex);
 
@@ -331,7 +332,7 @@ export const Experience = () => {
             >
               
               <div className="career career--smallsize" >
-                <div className="career__subtitle">連絡お待ちしてます！</div>
+                <div className="career__subtitle">ご連絡・ご依頼お待ちしています！</div>
                 <div className="career__label">メール</div>
                 <div className="career__link">
                   <a href="mailto:mtkg@tanoshimi.dev?subject=システム依頼" target="_blank" rel="noopener" >mtkg@tanoshimi.dev</a>
