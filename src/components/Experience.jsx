@@ -246,10 +246,6 @@ export const Experience = () => {
                 <div className="career__link">
                   <a href="https://textbook.hannari.dev" target="_blank" rel="noopener" >textbook</a>
                 </div>
-                <div className="career__label">システム・アプリ概算見積り（作成中）</div>
-                <div className="career__link">
-                  <a href="https://oikura.tanoshimi.dev" target="_blank" rel="noopener" >おいくら</a>
-                </div>
 
               </div>
               
