@@ -25,6 +25,7 @@ const LoadingScreen = () => {
   return (
     <div className={`loading-screen ${active ? "" : "loading-screen--hidden"}`}>
       <div className="loading-screen__container">
+        {/*         
         <h1 className="loading-screen__title">お待ちください</h1>
         <div className="progress__container">
           <div
@@ -32,6 +33,9 @@ const LoadingScreen = () => {
             style={{ width: `${progress}%` }}
           ></div>
         </div>
+         */}
+        <div className="loader"></div>
+
       </div>
     </div>
   );

@@ -145,7 +145,7 @@ export const Experience = () => {
               position-y={ isMobile ? -0.7 : 0.5 }
               speed={ isMobile ? 0.5 : 0.2 }
               color={ 'gold' }
-              count={ isMobile ? 20 : 20 }
+              count={ isMobile ? 15 : 20 }
             />
           </group>
 
