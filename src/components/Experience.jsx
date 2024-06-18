@@ -169,14 +169,15 @@ export const Experience = () => {
               position={isMobile? [-0.95, -9, 2] : [1, -10, 0.5]}
             >
 
-              <div className="career career--normalsize" >
+              <div className="career career--normalsize1" >
                 <div className="career__subtitle">実務経験</div>
                 <div className="career__label">Frontend</div>
                 <div className="career__list">
                   <ul>
+                    <li>TypeScript, JavaScript</li>
                     <li>React</li>
                     <li>Vue.js</li>
-                    <li>TypeScript, JavaScript</li>
+                    <li>Dart</li>
                   </ul>
                 </div>
                 <div className="career__label">Backend</div>
@@ -184,7 +185,7 @@ export const Experience = () => {
                   <ul>
                     <li>PHP</li>
                     <li>Java</li>
-                    <li>Dart</li>
+                    <li>C#</li>
                     <li>Node.js</li>
                     <li>Rust</li>
                   </ul>
@@ -234,7 +235,7 @@ export const Experience = () => {
                 </div>
                 <div className="career__label">LP</div>
                 <div className="career__link">
-                  <a href="https://bigangel.jp/" target="_blank" rel="noopener" >アイドル</a>
+                  <a href="https://bigangel.jp/" target="_blank" rel="noopener" >某アイドル</a>
                 </div>
                 <div className="career__label">WordPress</div>
                 <div className="career__link">
@@ -284,7 +285,7 @@ export const Experience = () => {
               occlude position={isMobile ? [-3.5, -70, 15] : [5, -100, 20.25]}
             >
             
-              <div className="career career--normalsize" >
+              <div className="career career--normalsize2" >
                 <div className="career__subtitle">保有資格</div>
 
                 <div className="career__label">IPA 情報処理技術者試験</div>
@@ -339,7 +340,7 @@ export const Experience = () => {
                 </div>
                 <div className="career__label">ココナラ経由</div>
                 <div className="career__link">
-                  <a href="https://coconala.com/users/2393040" target="_blank" rel="noopener" >ココナラからのご依頼</a>
+                  <a href="https://coconala.com/users/2393040" target="_blank" rel="noopener" >ココナラからご依頼</a>
                 </div>                
               </div>
               

@@ -100,14 +100,19 @@ body {
   height: 460px;
 }
 
-.career--normalsize {
+.career--normalsize1 {
   width: 320px;
-  height: 320px;
+  height: 335px;
+}
+
+.career--normalsize2 {
+  width: 320px;
+  height: 300px;
 }
 
 .career--smallsize {
   width: 320px;
-  height: 200px;
+  height: 180px;
 }
 
 .career__subtitle {
