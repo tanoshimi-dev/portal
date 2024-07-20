@@ -244,7 +244,7 @@ export const Experience = () => {
                 
                 <div className="career__subtitle">個人プロジェクトの一例です</div>
 
-                <div className="career__label">技術テキスト（作成中）</div>
+                <div className="career__label">受講生用の技術テキスト</div>
                 <div className="career__link">
                   <a href="https://textbook.hannari.dev" target="_blank" rel="noopener" >textbook</a>
                 </div>
