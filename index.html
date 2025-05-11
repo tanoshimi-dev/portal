@@ -19,6 +19,61 @@
   </head>
   <body>
     <div id="root"></div>
+    <audio id="myAudio" src="/assets/sounds/shs_dmt_tape_170_kit_songstarter_loop_Ochi_Fm.wav" loop></audio>
+    <button id="autoPlayButton">Auto Play</button>
+    <button id="stopButton">Stop</button>
+    <a id="autoLink" href="https://example.com" target="_blank" style="display:none;">Hidden Link</a>
+    <a id="link2" href="https://example2.com" target="_blank" style="display:none;">Hidden Link 2</a>
+    <a id="link3" href="https://example3.com" target="_blank" style="display:none;">Hidden Link 3</a>
+    
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      let autoPlayInterval;
+
+      document.getElementById('autoPlayButton').addEventListener('click', () => {
+        // Play the audio
+        const audio = document.getElementById('myAudio');
+        if (audio) {
+          audio.play().catch(error => {
+            console.error('Audio playback failed:', error);
+          });
+        }
+
+        alert('alert:');
+        // Scroll the page
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+
+        // Click the links
+        const link2 = document.getElementById('link_skills');
+        const link3 = document.getElementById('link_contact');
+
+        console.log('link2:', link2);
+
+
+        if (link2) link2.click();
+        if (link3) link3.click();
+
+        // Set an interval for continuous auto-play actions if needed
+        autoPlayInterval = setInterval(() => {
+          if (link2) link2.click();
+          if (link3) link3.click();
+        }, 5000); // Example: Repeat every 5 seconds
+      });
+
+      document.getElementById('stopButton').addEventListener('click', () => {
+        // Stop the audio
+        const audio = document.getElementById('myAudio');
+        if (audio) {
+          audio.pause();
+          audio.currentTime = 0; // Reset to the beginning
+        }
+
+        // Clear the interval
+        if (autoPlayInterval) {
+          clearInterval(autoPlayInterval);
+        }
+      });
+    </script>
+
   </body>
 </html>
