@@ -10,7 +10,7 @@ import { useProgress } from "@react-three/drei";
 import { Menu } from "./components/Menu";
 import { Footer } from "./components/Footer";
 import { color } from "three/examples/jsm/nodes/Nodes.js";
-
+import { AutoplayButton } from "./components/AutoplayButton";
 
 
 const CubeLoader = () => {
@@ -82,6 +82,7 @@ function App() {
       <Menu />
       <Footer />
 
+      <AutoplayButton />
     </>
   );
 }
