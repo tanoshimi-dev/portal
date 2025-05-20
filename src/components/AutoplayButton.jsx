@@ -61,8 +61,8 @@ export const AutoplayButton = () => {
     if (link_projects) link_projects.click();
 
     await wait(1000);
-    const project_1 = document.getElementById('project_1');
-    if (project_1) project_1.click();
+    // const project_1 = document.getElementById('project_1');
+    // if (project_1) project_1.click();
 
 
   };
@@ -80,10 +80,18 @@ export const AutoplayButton = () => {
 
   return (
     <>
-      {showBackdrop && <Backdrop onClose={stopSound}/>} 
-      <div style={{ position: 'fixed', bottom: 300, zIndex: 19999 }}>
-         <button onClick={playSound}>Play</button>
+      {showBackdrop ? 
+      <Backdrop onClose={stopSound}/>
+      :
+      <div style={{ position: 'fixed', bottom: '5vh', zIndex: 19999, right: '5vw' }}>
+        <img
+          onClick={playSound}
+          src="/assets/icons/high-volume.svg" 
+          alt="Play"
+          style={{ width: 48, height: 48, cursor: 'pointer', borderRadius: '50%', boxShadow: '0 0 6px rgba(0,0,0,0.5)' }}
+        />
       </div>
+      }
     </>
   );
 }
