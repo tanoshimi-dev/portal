@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { Environment, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
@@ -9,6 +10,8 @@ import { useProgress } from "@react-three/drei";
 import { Menu } from "./components/Menu";
 import { Footer } from "./components/Footer";
 import { color } from "three/examples/jsm/nodes/Nodes.js";
+import { AutoplayButton } from "./components/AutoplayButton";
+
 
 const CubeLoader = () => {
   return (
@@ -20,7 +23,10 @@ const CubeLoader = () => {
 };
 
 const LoadingScreen = () => {
+
+  
   const { progress, active } = useProgress();
+
 
   return (
     <div className={`loading-screen ${active ? "" : "loading-screen--hidden"}`}>
@@ -42,9 +48,14 @@ const LoadingScreen = () => {
 };
 
 function App() {
+  
+
+
+
   return (
     <>
       <LoadingScreen />
+
       <Canvas camera={{ position: [.125, 4.25, 4.25], fov: 40 }} style={{backgroundColor: '#f0fff0'}} >
         <ScrollControls pages={5} >
           
@@ -67,12 +78,11 @@ function App() {
         <ambientLight intensity={1} />
         <Environment preset="sunset" />
 
-
-
-      
       </Canvas>
       <Menu />
       <Footer />
+
+      <AutoplayButton />
     </>
   );
 }

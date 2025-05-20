@@ -1,7 +1,12 @@
+
 export const Footer = () => {
-    return (
+  
+  return (
+    <>
       <div className="footer_links">
-        ©2024 Tanoshimi.dev All Rights Reserved
+        ©2025 Tanoshimi.dev All Rights Reserved
       </div>
-    );
-  };
+    </>
+  );
+
+};

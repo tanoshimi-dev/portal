@@ -22,7 +22,6 @@ import { config } from "../config";
 import { useMobile } from "../hooks/useMobile";
 
 
-
 const SECTIONS_DISTANCE = 5;
 
 export const Experience = () => {
@@ -134,6 +133,7 @@ export const Experience = () => {
         {`たのしみdev`}
       </Text>
 
+
       <Scroll>
 
         <group>
@@ -223,7 +223,7 @@ export const Experience = () => {
                 
                 <div className="career__label">ECサイト</div>
                 <div className="career__link">
-                  <a href="https://tokyoworkswd.com" target="_blank" rel="noopener" >卸売会社</a>
+                  <a id="project_1" href="https://tokyoworkswd.com" target="_blank" rel="noopener" >卸売会社</a>
                 </div>
                 <div className="career__label">Webアプリ（劇場内で使用したシステム）</div>
                 <div className="career__link">
@@ -290,23 +290,23 @@ export const Experience = () => {
 
                 <div className="career__label">IPA 情報処理技術者試験</div>
                 <div className="career__link">
-                  <a href="#" onClick={() => setLicenseIndex(0)}>データベーススペシャリスト</a>
+                  <a id="license_1" href="#" onClick={() => setLicenseIndex(0)}>データベーススペシャリスト</a>
                 </div>
                 <div className="career__link">
-                  <a href="#" onClick={() => setLicenseIndex(1)}>ネットワークスペシャリスト</a>
+                  <a id="license_2" href="#" onClick={() => setLicenseIndex(1)}>ネットワークスペシャリスト</a>
                 </div>
                 <div className="career__link">
-                  <a href="#" onClick={() => setLicenseIndex(2)}>プロジェクトマネージャ</a>
+                  <a id="license_3" href="#" onClick={() => setLicenseIndex(2)}>プロジェクトマネージャ</a>
                 </div>
 
                 <div className="career__label">商工会議所の検定試験</div>
                 <div className="career__link">
-                  <a href="#" onClick={() => setLicenseIndex(3)}>日商簿記検定 2級</a>
+                  <a id="license_4" href="#" onClick={() => setLicenseIndex(3)}>日商簿記検定 2級</a>
                 </div>
  
                 <div className="career__label">その他</div>
                 <div className="career__link">
-                  <a href="#" onClick={() => setLicenseIndex(4)}>AWS CLF</a>
+                  <a id="license_5" href="#" onClick={() => setLicenseIndex(4)}>AWS CLF</a>
                 </div>
 
               </div>
@@ -351,8 +351,9 @@ export const Experience = () => {
 
         </group>
 
-
       </Scroll>
+
+
 
       {/* <Html position={[0, 0, 0]} style={{ position: 'absolute', top: '10px', left: '10px' }}>
             <div className="label">
